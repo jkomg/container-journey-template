@@ -7,7 +7,7 @@ sudo apt-get install cf-cli
 cf --version
 curl "http://public.dhe.ibm.com/cloud/bluemix/cli/bluemix-cli/Bluemix_CLI_0.5.1_amd64.tar.gz" | tar zxvf -
 sudo ./Bluemix_CLI/install_bluemix_cli
-bx login
+bx login -a https://api.ng.bluemix.net
 bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
 bx plugin install container-service -r Bluemix
 bx cs init

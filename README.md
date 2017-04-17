@@ -26,7 +26,7 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
 4. Log into the Bluemix CLI. 
     ```bash
-    $ bx login
+    $ bx login -a https://api.ng.bluemix.net
     ```
 
 5. Follow the prompts to select an account and space to log in to.
@@ -47,11 +47,11 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
     **a. Download the Kubernetes CLI.**
     
-    OS X: http://storage.googleapis.com/kubernetes-release/release/v1.5.1/bin/darwin/amd64/kubectl
+    OS X: http://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/darwin/amd64/kubectl
     
-    Linux: http://storage.googleapis.com/kubernetes-release/release/v1.5.1/bin/linux/amd64/kubectl
+    Linux: http://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/linux/amd64/kubectl
 
-    Windows: http://storage.googleapis.com/kubernetes-release/release/v1.5.1/bin/windows/amd64/kubectl.exe
+    Windows: http://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/windows/amd64/kubectl.exe
     
     **b. For OSX and Linux users, convert the binary file to an executable.**
     
@@ -66,7 +66,7 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
     ```
     Move the executable file to the /usr/local/bin directory
     ```bash
-    $ mv kubectl /usr/local/bin/kubectl
+    $ sudo mv kubectl /usr/local/bin/kubectl
     ```
 
 Congratulations! You successfully created your Bluemix account and installed the CLIs for the following lessons and tutorials. Next, access your cluster by using the CLI.

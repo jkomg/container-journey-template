@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-bx login
+bx login -a https://api.ng.bluemix.net
 bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
 bx plugin install container-service -r Bluemix
 bx cs init

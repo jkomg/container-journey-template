@@ -8,7 +8,7 @@ cf --version
 curl "http://public.dhe.ibm.com/cloud/bluemix/cli/bluemix-cli/Bluemix_CLI_0.5.1_amd64.tar.gz" | tar zxvf -
 sudo ./Bluemix_CLI/install_bluemix_cli
 set +x
-bx login -u $user -p $password
+bx login -u $user -p $password -a https://api.ng.bluemix.net
 set -x
 bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
 bx plugin install container-service -r Bluemix
