@@ -33,7 +33,7 @@
     
     CLUSTER_NAME – Your cluster name. Retrieve it with `bx cs clusters`. 
 
-    API_KEY (Optional) - API_KEY for to login your account. It is recommended for **Federated ID** since Federated ID can't login with Bluemix user and password via Bluemix CLI. You can obtain your API_KEY via https://console.ng.bluemix.net/docs/containers/cs_troubleshoot.html#cs_federated_id
+    API_KEY (Optional) - API_KEY is for login to your account. It is recommended for **Federated ID** since Federated ID can't login with Bluemix user and password via Bluemix CLI. You can obtain your API_KEY via https://console.ng.bluemix.net/docs/containers/cs_troubleshoot.html#cs_federated_id
 
 > Note: **Federated ID** means your organization uses a federated identity to authenticate with Bluemix.
    
