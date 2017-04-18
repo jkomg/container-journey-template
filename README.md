@@ -79,7 +79,7 @@ Congratulations! You successfully created your Bluemix account and installed the
     ```
     A free cluster comes with one worker node to deploy container pods upon. A worker node is the compute host, typically a virtual machine, that your pods run on. An app in production runs replicas of a pod across multiple worker nodes to provide higher availability for your app.
     
-> **Note:** It can take up to 15 minutes for the worker node machine to be ordered, and for the cluster to be set up and provisioned. 
+> **Note:** It can take up to 2 hours for the worker node machine to be ordered, and for the cluster to be set up and provisioned. 
 
 2. Before you continue to the next step, verify that the deployment of your worker node is complete. 
     ```bash
