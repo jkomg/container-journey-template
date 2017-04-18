@@ -32,10 +32,10 @@
     BLUEMIX_ACCOUNT – The GUID of the Bluemix account where you created the cluster. Retrieve it with `bx iam accounts`.
     
     CLUSTER_NAME – Your cluster name. Retrieve it with `bx cs clusters`. 
-    
-> Note: For **Federated ID** user, since you can't login with Bluemix user and password via Bluemix CLI, you need to obtain an Apikey for login via https://console.ng.bluemix.net/docs/containers/cs_troubleshoot.html#cs_federated_id. 
-> 
-> Once you have your APIkey, click **add property** under environment properties and choose **Secure Property**. Then add a new property called `API_KEY` and put down your APIkey. 
+
+    API_KEY (Optional) - API_KEY for to login your account. It is recommended for **Federated ID** since Federated ID can't login with Bluemix user and password via Bluemix CLI. You can obtain your API_KEY via https://console.ng.bluemix.net/docs/containers/cs_troubleshoot.html#cs_federated_id
+
+> Note: **Federated ID** means your organization uses a federated identity to authenticate with Bluemix.
    
 ![env](images/env-example.png)
 
