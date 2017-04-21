@@ -25,6 +25,13 @@ fi
 TEMPDIR=$(mktemp -d)
 pushd $TEMPDIR
 
+if [[ -z "$BXUSER" ]]; then
+    read -p "Enter your bluemix userid and press [ENTER]: " BXUSER
+fi
+if [[ -z "$BXPASS" ]]; then
+    read -p "Enter your bluemix password and press [ENTER]: " BXPASS
+fi
+
 # Get down to work
 #
 # Step 1: install cf cli
@@ -49,7 +56,13 @@ sudo ./Bluemix_CLI/install_bluemix_cli
 
 # Step 3: sign into bluemix
 echo "Configuring bluemix client"
-bx login -a https://api.ng.bluemix.net
+# if a BXACCOUNT was specified, select that account without having to
+# go interactive. It would be nice if bx login didn't prompt you for this.
+if [[ -z "$BXACCOUNT" ]]; then
+    bx login -a https://api.ng.bluemix.net -u $BXUSER -p $BXPASS
+else
+    echo "$BXACCOUNT" | bx login -a https://api.ng.bluemix.net -u $BXUSER -p $BXPASS
+fi
 if [[ -z "$(bx plugin repos | grep Bluemix)" ]]; then
     bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
 fi
