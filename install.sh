@@ -71,16 +71,16 @@ rm -rf $TEMPDIR
 
 echo "Success!"
 
-cluster=$(bx cs clusters wordpress | grep wordpress)
-if [ ${#cluster} -ne 0 ]; then
-	echo "y" | bx cs cluster-rm wordpress
-fi
+# cluster=$(bx cs clusters wordpress | grep wordpress)
+# if [ ${#cluster} -ne 0 ]; then
+# 	echo "y" | bx cs cluster-rm wordpress
+# fi
 
-bx cs cluster-create --name wordpress
-sleep 5m
-sleep 5m
-sleep 5m
-bx cs workers wordpress
-bx cs cluster-config wordpress
-$(bx cs cluster-config wordpress | grep -v "Downloading" | grep -v "OK" | grep -v "The")
-kubectl get secrets --namespace=default
+# bx cs cluster-create --name wordpress
+# sleep 5m
+# sleep 5m
+# sleep 5m
+# bx cs workers wordpress
+# bx cs cluster-config wordpress
+# $(bx cs cluster-config wordpress | grep -v "Downloading" | grep -v "OK" | grep -v "The")
+# kubectl get secrets --namespace=default
