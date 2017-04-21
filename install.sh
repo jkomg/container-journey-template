@@ -71,7 +71,11 @@ rm -rf $TEMPDIR
 
 echo "Success!"
 
-echo "y" | bx cs cluster-rm wordpress
+cluster=$(bx cs clusters wordpress | grep wordpress)
+if [ ${#cluster} -ne 0 ]; then
+	echo "y" | bx cs cluster-rm wordpress
+fi
+
 bx cs cluster-create --name wordpress
 sleep 5m
 sleep 5m
