@@ -3,6 +3,5 @@ sudo: required
 script:
 - bash install.sh
 group: stable
-dist: trusty
-sudo: required
+dist: precise
 os: linux
