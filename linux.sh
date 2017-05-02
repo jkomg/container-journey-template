@@ -32,7 +32,7 @@ if [[ -z "$BXPASS" ]]; then
     read -p "Enter your bluemix password and press [ENTER]: " BXPASS
 fi
 
-# Step 2: download and install bluemix, verifying integrity
+# Step 1: download and install bluemix, verifying integrity
 echo "Installing bluemix client"
 BLUEMIX_TAR=Bluemix_CLI_0.5.2_amd64.tar.gz
 curl -o $BLUEMIX_TAR "https://public.dhe.ibm.com/cloud/bluemix/cli/bluemix-cli/$BLUEMIX_TAR"
@@ -43,7 +43,7 @@ sha256sum -c bluemix.sha --strict
 tar zxvf $BLUEMIX_TAR
 sudo ./Bluemix_CLI/install_bluemix_cli
 
-# Step 3: sign into bluemix
+# Step 2: sign into bluemix
 echo "Configuring bluemix client"
 # if a BXACCOUNT was specified, select that account without having to
 # go interactive. It would be nice if bx login didn't prompt you for this.
@@ -58,7 +58,7 @@ fi
 bx plugin install container-service -r Bluemix
 bx cs init
 
-# Step 4: get kubectl
+# Step 3: get kubectl
 #
 # TODO: would be good to verify integrity of binary
 echo "Install kubernetes control"
