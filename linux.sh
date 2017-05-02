@@ -32,17 +32,6 @@ if [[ -z "$BXPASS" ]]; then
     read -p "Enter your bluemix password and press [ENTER]: " BXPASS
 fi
 
-# Get down to work
-#
-# Step 1: install cf cli
-echo "Installing cloud foundry cli"
-wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
-echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
-# because if some 3rd party repos are down, we kind of want to ignore them
-sudo apt-get update || /bin/true
-sudo apt-get install cf-cli
-cf --version
-
 # Step 2: download and install bluemix, verifying integrity
 echo "Installing bluemix client"
 BLUEMIX_TAR=Bluemix_CLI_0.5.2_amd64.tar.gz

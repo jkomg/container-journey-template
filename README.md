@@ -16,34 +16,31 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
 > Linux Quickstart: For Linux users, you can run `bash linux.sh` and move on to [Lession 2](#lesson-2-setting-up-your-cluster-environment).
 
-2. As a prerequisite for the Bluemix CLI, install the [Cloud Foundry CLI](https://github.com/cloudfoundry/cli/releases). You must install the Cloud Foundry CLI in the default location for your operating system, otherwise the PATH environment variable does not match your installation directory. The prefix for running the Cloud Foundry CLI commands is `cf`.
-
-
-3. As a prerequisite for the Bluemix Kubernetes plug-in, install the [Bluemix CLI](http://clis.ng.bluemix.net/ui/home.html). The prefix for running commands by using the Bluemix CLI is `bx`.
+2. As a prerequisite for the Bluemix Kubernetes plug-in, install the [Bluemix CLI](http://clis.ng.bluemix.net/ui/home.html). The prefix for running commands by using the Bluemix CLI is `bx`.
 
 > OS X Quickstart: For Mac users, after you installed the Cloud Foundry CLI and Bluemix CLI, you can run `bash osx.sh` and move on to [Lession 2](#lesson-2-setting-up-your-cluster-environment).
 
 
-4. Log into the Bluemix CLI. 
+3. Log into the Bluemix CLI. 
     ```bash
     $ bx login -a https://api.ng.bluemix.net
     ```
 
-5. Follow the prompts to select an account and space to log in to.
+4. Follow the prompts to select an account and space to log in to.
 
 
-6. To create Kubernetes clusters, and manage worker nodes, install the Bluemix Kubernetes plug-in. The prefix for running commands by using the Bluemix Kubernetes plug-in is `bx cs`. 
+5. To create Kubernetes clusters, and manage worker nodes, install the Bluemix Kubernetes plug-in. The prefix for running commands by using the Bluemix Kubernetes plug-in is `bx cs`. 
     ```bash
     $ bx plugin repo-add Bluemix https://plugins.ng.bluemix.net
     $ bx plugin install container-service -r Bluemix
     ```
 
-7. Initialize the Bluemix Kubernetes plug-in. 
+6. Initialize the Bluemix Kubernetes plug-in. 
     ```bash
     $ bx cs init 
     ```
 
-8. To view a local version of the Kubernetes dashboard and to deploy apps into your clusters, install the [Kubernetes CLI](https://kubernetes.io/docs/user-guide/prereqs/). The prefix for running commands by using the Kubernetes CLI is kubectl.
+7. To view a local version of the Kubernetes dashboard and to deploy apps into your clusters, install the [Kubernetes CLI](https://kubernetes.io/docs/user-guide/prereqs/). The prefix for running commands by using the Kubernetes CLI is kubectl.
 
     **a. Download the Kubernetes CLI.**
     
