@@ -10,7 +10,10 @@
 
 3. Once the repository is forked, you will be taken to the Bluemix Continuous Delivery toolchain setup. This toolchain has been defined by the template in the sample repository.
 
-> Note: If you already forked that project, please change your **repository type** to *clone* or *existing*.
+> **Important**: If you already forked that project, you can sync your current forked project with our master branch to trigger a new build in your current toolchain. You can obtain more information on how to sync your reoisitory via https://help.github.com/articles/syncing-a-fork/
+> 
+> However, if you really want to create a new toolchain, please change your **repository type** to *clone* or *existing*. 
+
 
 4. Click the Create button. This will generate a toolchain that looks like the following:
 
@@ -33,7 +36,7 @@
     
     CLUSTER_NAME – Your cluster name. Retrieve it with `bx cs clusters`. 
 
-    API_KEY (Optional) - API_KEY is for login to your account. It is recommended for **Federated ID** since Federated ID can't login with Bluemix user and password via Bluemix CLI. You can obtain your API_KEY via https://console.ng.bluemix.net/docs/containers/cs_troubleshoot.html#cs_federated_id
+    API_KEY (Optional) - API_KEY is for login to your account. It is recommended for **Federated ID** since Federated ID can't login with Bluemix user and password via Bluemix CLI. You can obtain your API_KEY via https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once). 
 
 > Note: **Federated ID** means your organization uses a federated identity to authenticate with Bluemix.
    
