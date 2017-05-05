@@ -10,7 +10,7 @@
 
 3. Once the repository is forked, you will be taken to the Bluemix Continuous Delivery toolchain setup. This toolchain has been defined by the template in the sample repository.
 
-> **Important**: If you already forked that project, you can sync your current forked project with our master branch to trigger a new build in your current toolchain. You can obtain more information on how to sync your reoisitory via https://help.github.com/articles/syncing-a-fork/
+> **Important**: If you already forked that project, you can sync your current forked project with our master branch to trigger a new build in your current toolchain. You can obtain more information on how to sync your repository via https://help.github.com/articles/syncing-a-fork/
 > 
 > However, if you really want to create a new toolchain, please change your **repository type** to *clone* or *existing*. 
 
