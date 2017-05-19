@@ -14,11 +14,11 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
 1. If you do not have one yet, create a [Bluemix account](https://console.ng.bluemix.net/registration/). Make note of your user name and password as this information is required later.
 
-> Linux Quickstart: For Linux users, you can run `bash linux.sh` and move on to [Lession 2](#lesson-2-setting-up-your-cluster-environment).
+> Linux Quickstart: For Linux users, you can run `bash linux.sh` in [this repo](https://github.com/IBM/container-journey-template). Then, move on to [Lession 2](#lesson-2-setting-up-your-cluster-environment).
 
 2. As a prerequisite for the Bluemix Kubernetes plug-in, install the [Bluemix CLI](http://clis.ng.bluemix.net/ui/home.html). The prefix for running commands by using the Bluemix CLI is `bx`.
 
-> OS X Quickstart: For Mac users, after you installed the Cloud Foundry CLI and Bluemix CLI, you can run `bash osx.sh` and move on to [Lession 2](#lesson-2-setting-up-your-cluster-environment).
+> OS X Quickstart: For Mac users, after you installed Bluemix CLI, you can run `bash osx.sh` on your terminal in [this repo](https://github.com/IBM/container-journey-template). Then move on to [Lession 2](#lesson-2-setting-up-your-cluster-environment).
 
 
 3. Log into the Bluemix CLI. 
