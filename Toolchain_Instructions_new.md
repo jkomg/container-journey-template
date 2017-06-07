@@ -32,8 +32,8 @@ Here are some common environment variables for deploying applications on Kuberne
 
 ![toolchain](images/toolchain.png)
 
-6. Select the Delivery Pipeline tile from the toolchain view to open the pipeline stages view.
+5. Select the Delivery Pipeline tile from the toolchain view to open the pipeline stages view.
 
-7. Click **View logs and history** of the Deploy stage to find the URL/Endpoint of the application.
+6. Click **View logs and history** of the Deploy stage to find the URL/Endpoint of the application.
 
-8. Congratulation, now you can click the URL link to load the web application in your browser. For other applications, you can also find the applcation endpoint at the end of your logs. Note it takes a few seconds from the time the pods deploy until they are ready to serve requests.
+7. Congratulation, now you can click the URL link to load the web application in your browser. For other applications, you can also find the applcation endpoint at the end of your logs. Note it takes a few seconds from the time the pods deploy until they are ready to serve requests.
