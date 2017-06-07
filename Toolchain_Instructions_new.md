@@ -12,6 +12,22 @@
 
 ![Delivery Pipeline](images/delivery.png)
 
+Here are some common environment variables for deploying applications on Kubernetes.
+
+- Bluemix API Key (Optional) - API Key is for login to your account. It is recommended for **Federated ID** since Federated ID can't login with Bluemix user and password via Bluemix CLI. You can obtain your API_KEY via https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once). 
+
+> Note: **Federated ID** means your organization uses a federated identity to authenticate with Bluemix.
+>
+> If you filled in your Bluemix API Key, you can leave the **Bluemix User ID**, **Password**, and **Cluster Account ID** section blank.
+
+- Bluemix User ID– your Bluemix user ID. 
+
+- Bluemix Password – your Bluemix password. 
+
+- Bluemix Cluster Account ID – The GUID of the Bluemix account where you created the cluster. Retrieve it with `bx iam accounts`.
+
+- Bluemix Cluster Name – Your cluster name. Retrieve it with `bx cs clusters`.
+
 4. After you filled in your environment variables, click **CREATE**. Once the repository is cloned on your GitHub, you will be taken to the Bluemix Continuous Delivery toolchain setup. 
 
 ![toolchain](images/toolchain.png)
