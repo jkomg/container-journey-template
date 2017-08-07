@@ -112,10 +112,10 @@ Congratulations! You successfully created your Bluemix account and installed the
     ```
     A free cluster comes with one worker node to deploy container pods upon. A worker node is the compute host, typically a virtual machine, that your pods run on. A pod is a group of one or more containers, the shared storage for those containers, and the options about how to run them. The pod model is as an "application specific logical host", which means it contains one or more application containers which are relatively tightly coupled.
 
-    A paid cluster comes with multiple worker nodes to deploy container pods upon. It also comes with full Kubernetes features such as Load Balancer and Ingress. You can use the following commands to view the avalible location id, machine type, and VLAN id for your paid cluster.
+    A paid cluster comes with multiple worker nodes to deploy container pods upon. It also comes with full Kubernetes features such as Load Balancer and Ingress. You can use the following commands to view the available location id, machine type, and VLAN id for your paid cluster.
     ```shell
-    $ bx cs locations # list of avalible location
-    $ bx cs machine-types [location id] # list of avalible machine type for the location
+    $ bx cs locations # list of available location
+    $ bx cs machine-types [location id] # list of available machine type for the location
     $ bx cs vlans [location id] # private and public vlan id for the location
     ``` 
 
