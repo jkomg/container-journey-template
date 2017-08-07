@@ -5,7 +5,7 @@
 This scenario provides instructions for the following tasks:
 - Install the Bluemix CLI and associated repos
 - Install the CLIs for using the Kubernetes API
-- Create a Kubernetes cluster with one worker node
+- Create a Kubernetes cluster with one or more worker nodes
 
 
 ## Step 1. Setting up the Bluemix CLI
@@ -15,11 +15,11 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
 1. If you do not have one yet, create a [Bluemix account](https://console.ng.bluemix.net/registration/). Make note of your user name and password as this information is required later.
 
-> For **Linux** users, you can clone this repo and run `bash linux.sh`. Then, move on to [Step 2](#Step-2-setting-up-your-cluster-environment).
+> For **Linux** users, you can clone this repo and run `bash linux.sh`. Then, move on to [Step 2](#step-2-setting-up-your-cluster-environment).
 
 2. As a prerequisite for the Bluemix Container Service plug-in, install the [Bluemix CLI](http://clis.ng.bluemix.net/ui/home.html). The prefix for running commands by using the Bluemix CLI is `bx`.
 
-> For **Mac** users, after you have installed the Bluemix CLI, you can clone this repo and run `bash osx.sh` in your terminal. Then move on to [Step 2](#Step-2-setting-up-your-cluster-environment).
+> For **Mac** users, after you have installed the Bluemix CLI, you can clone this repo and run `bash osx.sh` in your terminal. Then move on to [Step 2](#step-2-setting-up-your-cluster-environment).
 
 
 3. Log into the Bluemix CLI.
@@ -70,11 +70,11 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
     **a. Download the Kubernetes CLI.**
 
-    OS X: http://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/darwin/amd64/kubectl
+    OS X: `curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl`
 
-    Linux: http://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/linux/amd64/kubectl
+    Linux: `curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl`
 
-    Windows: http://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/windows/amd64/kubectl.exe
+    Windows: http://storage.googleapis.com/kubernetes-release/release/v1.7.0/bin/windows/amd64/kubectl.exe
 
     **b. For OSX and Linux users, convert the binary file to an executable.**
 
@@ -96,11 +96,22 @@ Congratulations! You successfully created your Bluemix account and installed the
 
 ## Step 2: Setting up your cluster environment
 
-1. Create your free Kubernetes cluster
+1. Create your free or paid Kubernetes cluster
     ```bash
+    # Create free Kubernetes cluster
     $ bx cs cluster-create --name [your_cluster_name]
+
+    # Create paid Kubernetes cluster
+    $ bx cs cluster-create --name [your_cluster_name] --location [location id] --machine-type [machine type] --private-vlan [private vlan id] --public-vlan [public vlan id] --workers [number of workers]
     ```
     A free cluster comes with one worker node to deploy container pods upon. A worker node is the compute host, typically a virtual machine, that your pods run on. A pod is a group of one or more containers, the shared storage for those containers, and the options about how to run them. The pod model is as an "application specific logical host", which means it contains one or more application containers which are relatively tightly coupled.
+
+    A paid cluster comes with multiple worker nodes to deploy container pods upon. It also comes with full Kubernetes features such as Load Balancer and Ingress. You can use the following commands to view the avalible location id, machine type, and VLAN id for your paid cluster.
+    ```shell
+    $ bx cs locations # list of avalible location
+    $ bx cs machine-types [location id] # list of avalible machine type for the location
+    $ bx cs vlans [location id] # private and public vlan id for the location
+    ``` 
 
 > **Note:** It can take up to 2 hours for the worker node machine to be ordered, and for the cluster to be set up and provisioned.
 
@@ -108,7 +119,7 @@ Congratulations! You successfully created your Bluemix account and installed the
     ```bash
     $ bx cs workers [your_cluster_name]
     ID                                           Public IP       Private IP    Machine Type  State     Status   
-    dal10-pa8dfcc5223804439c87489886dbbc9c07-w1  169.47.223.113  10.171.42.93  free         deployed  Deploy Automation                                          Successful   
+    dal10-pa8dfcc5223804439c87489886dbbc9c07-w1  169.47.223.113  10.171.42.93  free          normal    Ready    
     ```
 
 3. Set the context for your cluster in your CLI. Every time you log in to the IBM Bluemix Container Service CLI to work with the wordpress, you must run these commands to set the path to the cluster's configuration file as a session variable. The Kubernetes CLI uses this variable to find a local configuration file and certificates that are necessary to connect with the cluster in Bluemix.
