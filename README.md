@@ -112,6 +112,7 @@ Congratulations! You successfully created your Bluemix account and installed the
     $ bx cs machine-types [location id] # list of available machine type for the location
     $ bx cs vlans [location id] # private and public vlan id for the location
     ``` 
+    > If you want to create a cluster outside of us-south, you need to follow the [full instructions](https://console.bluemix.net/docs/containers/cs_cluster.html#cs_cluster_cli).
     
     Create your Kubernetes cluster.
     ```bash
