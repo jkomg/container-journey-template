@@ -102,7 +102,18 @@ Congratulations! You successfully created your Bluemix account and installed the
 
 ## Step 2: Setting up your cluster environment
 
-1. Create your free or paid Kubernetes cluster
+1. Create your free or paid Kubernetes cluster using terminal. You can also click [here](https://console.bluemix.net/containers-kubernetes/launch?env_id=ibm:yp:us-south) to create you cluster via Bluemix UI.
+
+    A free cluster comes with one worker node to deploy container pods upon. A worker node is the compute host, typically a virtual machine, that your pods run on. A pod is a group of one or more containers, the shared storage for those containers, and the options about how to run them. The pod model is as an "application specific logical host", which means it contains one or more application containers which are relatively tightly coupled.
+
+    A paid cluster comes with multiple worker nodes to deploy container pods upon. It also comes with full Kubernetes features such as Load Balancer and Ingress. You must have a [Pay-As-You-Go account](https://console.bluemix.net/docs/pricing/billable.html#upgradetopayg) in order to create a paid cluster. You can use the following commands to view the available location id, machine type, and VLAN id for your paid cluster.
+    ```shell
+    $ bx cs locations # list of available location id
+    $ bx cs machine-types [location id] # list of available machine type for the location
+    $ bx cs vlans [location id] # private and public vlan id for the location
+    ``` 
+    
+    Create your Kubernetes cluster.
     ```bash
     # Create free Kubernetes cluster
     $ bx cs cluster-create --name [your_cluster_name]
@@ -110,14 +121,6 @@ Congratulations! You successfully created your Bluemix account and installed the
     # Create paid Kubernetes cluster
     $ bx cs cluster-create --name [your_cluster_name] --location [location id] --machine-type [machine type] --private-vlan [private vlan id] --public-vlan [public vlan id] --workers [number of workers]
     ```
-    A free cluster comes with one worker node to deploy container pods upon. A worker node is the compute host, typically a virtual machine, that your pods run on. A pod is a group of one or more containers, the shared storage for those containers, and the options about how to run them. The pod model is as an "application specific logical host", which means it contains one or more application containers which are relatively tightly coupled.
-
-    A paid cluster comes with multiple worker nodes to deploy container pods upon. It also comes with full Kubernetes features such as Load Balancer and Ingress. You can use the following commands to view the available location id, machine type, and VLAN id for your paid cluster.
-    ```shell
-    $ bx cs locations # list of available location
-    $ bx cs machine-types [location id] # list of available machine type for the location
-    $ bx cs vlans [location id] # private and public vlan id for the location
-    ``` 
 
 > **Note:** It can take up to 2 hours for the worker node machine to be ordered, and for the cluster to be set up and provisioned.
 
@@ -133,7 +136,7 @@ Congratulations! You successfully created your Bluemix account and installed the
     a. Download the configuration file and certificates for the pr_firm_cluster cluster.
     ```bash
     $ bx cs cluster-config [your_cluster_name]
-    export KUBECONFIG=/Users/ibm/.bluemix/plugins/cs-cli/clusters/wordpress/kube-config-dal10-wordpress.yml
+    export KUBECONFIG=/Users/ibm/.bluemix/plugins/cs-cli/clusters/[your_cluster_name]/kube-config-[location id]-[your_cluster_name].yml
     ```
     
     b. Copy and paste the command from the previous step to set the KUBECONFIG environment variable and configure your CLI to run kubectl commands against your cluster.
