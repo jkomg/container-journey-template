@@ -139,7 +139,7 @@ Congratulations! You successfully created your Bluemix account and installed the
     export KUBECONFIG=/Users/ibm/.bluemix/plugins/cs-cli/clusters/[your_cluster_name]/kube-config-[location id]-[your_cluster_name].yml
     ```
     
-    b. Copy and paste the command from the previous step to set the KUBECONFIG environment variable and configure your CLI to run kubectl commands against your cluster.
+    b. Copy and paste the **export** command from the previous step to set the KUBECONFIG environment variable and configure your CLI to run kubectl commands against your cluster.
 
 4. From here you should be able to verify that your Kubernetes credentials are working by running the kubectl-specific version of the bx cs workers command above:
     ```bash
