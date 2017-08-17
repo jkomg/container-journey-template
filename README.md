@@ -2,6 +2,8 @@
 
 # Container Journey template - Creating a Kubernetes Cluster
 
+*Read this in other languages: [한국어](README-ko.md).*
+
 This scenario provides instructions for the following tasks:
 - Install the Bluemix CLI and associated repos
 - Install the CLIs for using the Kubernetes API
