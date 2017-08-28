@@ -24,12 +24,7 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 > For **Mac** users, after you have installed the Bluemix CLI, you can clone this repo and run `bash osx.sh` in your terminal. Then move on to [Step 2](#step-2-setting-up-your-cluster-environment).
 
 
-3. Log into the Bluemix CLI.
-    ```bash
-    $ bx login -a https://api.ng.bluemix.net
-    ```
-
-4. Follow the prompts to log into your Bluemix environment:
+3. Log into the Bluemix CLI with username and password
     ```bash
     $ bx login -a https://api.ng.bluemix.net
     API endpoint: https://api.ng.bluemix.net
@@ -51,11 +46,37 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
     API endpoint:   https://api.ng.bluemix.net (API version: 2.75.0)
     Region:         us-south
-    User:           myemail.email.com
+    User:           email@example.com
     Account:        Stuff (8b05eb34e24005a6a1f9ba77f565fe2d)
     Org:            test.org
     Space:          test
     ```
+
+4. Alternatively, log into Bluemix with a One Time Code if you use SSO
+
+    ```bash
+    $ bx login --sso
+    API endpoint: https://api.ng.bluemix.net
+
+    One Time Code (Get one at https://iam.ng.bluemix.net/oidc/passcode)>
+    Authenticating...
+    OK
+
+    Select an account (or press enter to skip):
+    2. My Account (47b84451ab70b94737518f7640a9ee42)
+    Enter a number> 1
+    Targeted account My Account (47b84451ab70b94737518f7640a9ee42)
+
+    API endpoint:   https://api.ng.bluemix.net (API version: 2.75.0)   
+    Region:         us-south   
+    User:           email@example.com   
+    Account:        My Account (47b84451ab70b94737518f7640a9ee42)   
+    No org or space targeted, use 'bx target --cf or bx target -o ORG -s SPACE'
+    ```
+
+Navigating to the URL specified [https://iam.ng.bluemix.net/oidc/passcode](https://iam.ng.bluemix.net/oidc/passcode) will prompt the user to log in and create a One Time Code for them to use.
+
+![](images/sso.png)
 
 5. To create Kubernetes clusters and manage worker nodes, install the Bluemix Container Service plug-in. The prefix for running commands by using the Bluemix Container Service plug-in is `bx cs`.
     ```bash
@@ -120,7 +141,7 @@ Congratulations! You successfully created your Bluemix account and installed the
     $ bx cs cluster-config [your_cluster_name]
     export KUBECONFIG=/Users/ibm/.bluemix/plugins/cs-cli/clusters/wordpress/kube-config-dal10-wordpress.yml
     ```
-    
+
     b. Copy and paste the command from the previous step to set the KUBECONFIG environment variable and configure your CLI to run kubectl commands against your cluster.
 
 4. From here you should be able to verify that your Kubernetes credentials are working by running the kubectl-specific version of the bx cs workers command above:
@@ -129,14 +150,14 @@ Congratulations! You successfully created your Bluemix account and installed the
     NAME             STATUS    AGE       VERSION
     184.172.242.18   Ready     3h        v1.5.6-4+abe34653415733
     ```
-    
+
 Great work! The cluster is created, configured, and your local environment is ready for you to start deploying apps into the cluster. To make sure it's running as it should, let's run the simple Docker hello-world container app on our new cluster.
-   
+
     $ kubectl run -i --tty hw --image=hello-world --restart=Never
-   
+
     Hello from Docker!
     This message shows that your installation appears to be working correctly.
-    
+
     To generate this message, Docker took the following steps:
     1. The Docker client contacted the Docker daemon.
     2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
@@ -144,15 +165,14 @@ Great work! The cluster is created, configured, and your local environment is re
     executable that produces the output you are currently reading.
     4. The Docker daemon streamed that output to the Docker client, which sent it
     to your terminal.
-    
+
     To try something more ambitious, you can run an Ubuntu container with:
     $ docker run -it ubuntu bash
-    
+
     Share images, automate workflows, and more with a free Docker ID:
     https://cloud.docker.com/
-    
+
     For more examples and ideas, visit:
     https://docs.docker.com/engine/userguide/
 
 That's it, you can now go back to the Journey that brought you here!
-
