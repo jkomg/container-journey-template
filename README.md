@@ -52,7 +52,13 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
     Space:          test
     ```
 
-4. Alternatively, log into Bluemix with an API key if you use SSO
+4. Alternatively, if you are using Single Sign-On, you can authenticate with Bluemix by using an API key. To create an API key, navigate to the _Manage_ -> _Security_ -> _Bluemix API Keys_ menu option, or go directly to: [https://console.bluemix.net/iam/#/apikeys](https://console.bluemix.net/iam/#/apikeys). Click the _Create_ button to create a new API key.
+
+> Note: Once created, you will not be able to view the API key again, so save it somewhere safe!
+
+![](images/sso.png)
+
+You can now use the API key to authenticate with Bluemix by using the `bx login --apikey <apikey>`.
 
     ```bash
 
@@ -73,10 +79,6 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
     Org:
     Space:
     ```
-
-By navigating to [https://console.bluemix.net/iam/#/apikeys](https://console.bluemix.net/iam/#/apikeys) you will be able to create an API key.
-
-![](images/sso.png)
 
 5. To create Kubernetes clusters and manage worker nodes, install the Bluemix Container Service plug-in. The prefix for running commands by using the Bluemix Container Service plug-in is `bx cs`.
     ```bash
