@@ -52,31 +52,33 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
     Space:          test
     ```
 
-4. Alternatively, log into Bluemix with a One Time Code if you use SSO
+4. Alternatively, if you are using Single Sign-On, you can authenticate with Bluemix by using an API key. To create an API key, navigate to the _Manage_ -> _Security_ -> _Bluemix API Keys_ menu option, or go directly to: [https://console.bluemix.net/iam/#/apikeys](https://console.bluemix.net/iam/#/apikeys). Click the _Create_ button to create a new API key.
+
+> Note: Once created, you will not be able to view the API key again, so save it somewhere safe!
+
+![](images/sso.png)
+
+You can now use the API key to authenticate with Bluemix by using the `bx login --apikey <apikey>`.
 
     ```bash
-    $ bx login --sso
-    API endpoint: https://api.ng.bluemix.net
 
-    One Time Code (Get one at https://iam.ng.bluemix.net/oidc/passcode)>
+    $ bx login --apikey bNUsU0vpX3ZXWUZvnSDowFDGUR8EZfTdHnJelsQvlhPr
+    API endpoint: https://api.ng.bluemix.net
     Authenticating...
     OK
 
-    Select an account (or press enter to skip):
-    2. My Account (47b84451ab70b94737518f7640a9ee42)
-    Enter a number> 1
-    Targeted account My Account (47b84451ab70b94737518f7640a9ee42)
+    Targeted account IBM (47b84451ab70b94737518f7640a9ee42) <-> 1323471
 
-    API endpoint:   https://api.ng.bluemix.net (API version: 2.75.0)   
-    Region:         us-south   
-    User:           email@example.com   
-    Account:        My Account (47b84451ab70b94737518f7640a9ee42)   
-    No org or space targeted, use 'bx target --cf or bx target -o ORG -s SPACE'
+    Targeted resource group default
+
+    API endpoint:     https://api.ng.bluemix.net (API version: 2.75.0)
+    Region:           us-south
+    User:             stevemar@ca.ibm.com
+    Account:          IBM (47b84451ab70b94737518f7640a9ee42) <-> 1323471
+    Resource group:   default
+    Org:
+    Space:
     ```
-
-Navigating to the URL specified [https://iam.ng.bluemix.net/oidc/passcode](https://iam.ng.bluemix.net/oidc/passcode) will prompt the user to log in and create a One Time Code for them to use.
-
-![](images/sso.png)
 
 5. To create Kubernetes clusters and manage worker nodes, install the Bluemix Container Service plug-in. The prefix for running commands by using the Bluemix Container Service plug-in is `bx cs`.
     ```bash
