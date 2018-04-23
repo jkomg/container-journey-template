@@ -2,6 +2,8 @@
 
 # Container Journey template - Creating a Kubernetes Cluster
 
+*Read this in other languages: [한국어](README-ko.md).*
+
 This scenario provides instructions for the following tasks:
 - Install the Bluemix CLI and associated repos
 - Install the CLIs for using the Kubernetes API
@@ -22,12 +24,7 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 > For **Mac** users, after you have installed the Bluemix CLI, you can clone this repo and run `bash osx.sh` in your terminal. Then move on to [Step 2](#step-2-setting-up-your-cluster-environment).
 
 
-3. Log into the Bluemix CLI.
-    ```bash
-    $ bx login -a https://api.ng.bluemix.net
-    ```
-
-4. Follow the prompts to log into your Bluemix environment:
+3. Log into the Bluemix CLI with username and password
     ```bash
     $ bx login -a https://api.ng.bluemix.net
     API endpoint: https://api.ng.bluemix.net
@@ -49,10 +46,38 @@ Install the IBM Bluemix Container Service CLI, the image registry CLI, and their
 
     API endpoint:   https://api.ng.bluemix.net (API version: 2.75.0)
     Region:         us-south
-    User:           myemail.email.com
+    User:           email@example.com
     Account:        Stuff (8b05eb34e24005a6a1f9ba77f565fe2d)
     Org:            test.org
     Space:          test
+    ```
+
+4. Alternatively, if you are using Single Sign-On, you can authenticate with Bluemix by using an API key. To create an API key, navigate to the _Manage_ -> _Security_ -> _Bluemix API Keys_ menu option, or go directly to: [https://console.bluemix.net/iam/#/apikeys](https://console.bluemix.net/iam/#/apikeys). Click the _Create_ button to create a new API key.
+
+> Note: Once created, you will not be able to view the API key again, so save it somewhere safe!
+
+![](images/sso.png)
+
+You can now use the API key to authenticate with Bluemix by using the `bx login --apikey <apikey>`.
+
+    ```bash
+
+    $ bx login --apikey bNUsU0vpX3ZXWUZvnSDowFDGUR8EZfTdHnJelsQvlhPr
+    API endpoint: https://api.ng.bluemix.net
+    Authenticating...
+    OK
+
+    Targeted account IBM (47b84451ab70b94737518f7640a9ee42) <-> 1323471
+
+    Targeted resource group default
+
+    API endpoint:     https://api.ng.bluemix.net (API version: 2.75.0)
+    Region:           us-south
+    User:             stevemar@ca.ibm.com
+    Account:          IBM (47b84451ab70b94737518f7640a9ee42) <-> 1323471
+    Resource group:   default
+    Org:
+    Space:
     ```
 
 5. To create Kubernetes clusters and manage worker nodes, install the Bluemix Container Service plug-in. The prefix for running commands by using the Bluemix Container Service plug-in is `bx cs`.
@@ -111,14 +136,14 @@ Congratulations! You successfully created your Bluemix account and installed the
     dal10-pa8dfcc5223804439c87489886dbbc9c07-w1  169.47.223.113  10.171.42.93  free         deployed  Deploy Automation                                          Successful   
     ```
 
-3. Set the context for your cluster in your CLI. Every time you log in to the IBM Bluemix Container Service CLI to work with the wordpress, you must run these commands to set the path to the cluster's configuration file as a session variable. The Kubernetes CLI uses this variable to find a local configuration file and certificates that are necessary to connect with the cluster in Bluemix.
+3. Set the context for your cluster in your CLI. Every time you log in to the IBM Bluemix Container Service CLI to work with the cluster, you must run these commands to set the path to the cluster's configuration file as a session variable. The Kubernetes CLI uses this variable to find a local configuration file and certificates that are necessary to connect with the cluster in Bluemix.
 
-    a. Download the configuration file and certificates for the pr_firm_cluster cluster.
+    a. Download the configuration file and certificates for your cluster using the `cluster-config` command.
     ```bash
     $ bx cs cluster-config [your_cluster_name]
     export KUBECONFIG=/Users/ibm/.bluemix/plugins/cs-cli/clusters/wordpress/kube-config-dal10-wordpress.yml
     ```
-    
+
     b. Copy and paste the command from the previous step to set the KUBECONFIG environment variable and configure your CLI to run kubectl commands against your cluster.
 
 4. From here you should be able to verify that your Kubernetes credentials are working by running the kubectl-specific version of the bx cs workers command above:
@@ -127,14 +152,14 @@ Congratulations! You successfully created your Bluemix account and installed the
     NAME             STATUS    AGE       VERSION
     184.172.242.18   Ready     3h        v1.5.6-4+abe34653415733
     ```
-    
+
 Great work! The cluster is created, configured, and your local environment is ready for you to start deploying apps into the cluster. To make sure it's running as it should, let's run the simple Docker hello-world container app on our new cluster.
-   
+
     $ kubectl run -i --tty hw --image=hello-world --restart=Never
-   
+
     Hello from Docker!
     This message shows that your installation appears to be working correctly.
-    
+
     To generate this message, Docker took the following steps:
     1. The Docker client contacted the Docker daemon.
     2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
@@ -142,15 +167,14 @@ Great work! The cluster is created, configured, and your local environment is re
     executable that produces the output you are currently reading.
     4. The Docker daemon streamed that output to the Docker client, which sent it
     to your terminal.
-    
+
     To try something more ambitious, you can run an Ubuntu container with:
     $ docker run -it ubuntu bash
-    
+
     Share images, automate workflows, and more with a free Docker ID:
     https://cloud.docker.com/
-    
+
     For more examples and ideas, visit:
     https://docs.docker.com/engine/userguide/
 
 That's it, you can now go back to the Journey that brought you here!
-
